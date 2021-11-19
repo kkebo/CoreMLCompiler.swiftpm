@@ -18,3 +18,9 @@ Core ML Compiler is an iPadOS/iOS app to convert a .mlmodel file into a .mlmodel
 
 - Swift Playgrounds 4.0 or later (iPadOS 15.2 or later)
 - Xcode 13.2 or later (macOS 11.3 or later)
+
+## Get Started
+
+1. Clone this repository
+2. Open CoreMLCompiler.swiftpm
+3. Run
