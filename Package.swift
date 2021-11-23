@@ -8,14 +8,14 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "Core ML Compiler",
+    name: "coreml-compiler",
     platforms: [
         .iOS("15.2")
     ],
     products: [
         .iOSApplication(
             name: "Core ML Compiler",
-            targets: ["AppModule"],
+            targets: ["CoreMLCompiler"],
             bundleIdentifier: "xyz.kebo.CoreMLCompiler",
             teamIdentifier: "X4678G5DL2",
             displayVersion: "1.0",
@@ -36,10 +36,7 @@ let package = Package(
     ],
     targets: [
         .executableTarget(
-            name: "AppModule",
-            resources: [
-                .process("Resources")
-            ]
+            name: "CoreMLCompiler"
         )
     ]
 )
