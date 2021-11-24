@@ -8,7 +8,7 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "coreml-compiler",
+    name: "Core ML Compiler",
     platforms: [
         .iOS("15.2")
     ],
