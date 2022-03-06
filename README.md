@@ -22,5 +22,6 @@ Core ML Compiler is an iPadOS/iOS app to convert a .mlmodel file into a .mlmodel
 ## Get Started
 
 1. Clone this repository
+    - I recommend [Working Copy](https://workingcopyapp.com) or [a-Shell](https://holzschu.github.io/a-Shell_iOS/) (`lg2` command).
 2. Open CoreMLCompiler.swiftpm
 3. Run
