@@ -50,7 +50,7 @@ extension QLView.Coordinator: QLPreviewControllerDataSource {
     }
 }
 
-final class PreviewItem: NSObject {
+private final class PreviewItem: NSObject {
     let previewItemURL: URL?
 
     init(url: URL?) {

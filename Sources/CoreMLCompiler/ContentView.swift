@@ -3,11 +3,11 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct ContentView {
-    @State var inputURL: URL?
-    @State var compiledURL: URL?
-    @State var isImporterPresented = false
-    @State var isExporterPresented = false
-    @State var isProcessing = false
+    @State private var inputURL: URL?
+    @State private var compiledURL: URL?
+    @State private var isImporterPresented = false
+    @State private var isExporterPresented = false
+    @State private var isProcessing = false
 }
 
 extension ContentView: View {
