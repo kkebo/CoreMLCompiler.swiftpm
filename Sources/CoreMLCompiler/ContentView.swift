@@ -6,14 +6,12 @@ struct ContentView {
     @State private var inputURL: URL?
     @State private var compiledURL: URL?
     @State private var isImporterPresented = false
-    @State private var isExporterPresented = false
-    @State private var isProcessing = false
 }
 
 extension ContentView: View {
     var body: some View {
-        NavigationView {
-            QLView(url: inputURL)
+        NavigationStack {
+            QLView(url: self.inputURL)
                 .fileImporter(
                     isPresented: self.$isImporterPresented,
                     allowedContentTypes: [
@@ -27,10 +25,13 @@ extension ContentView: View {
                         print("\(error.localizedDescription)")
                     }
                 }
-                .fileMover(
-                    isPresented: self.$isExporterPresented,
-                    file: self.compiledURL
-                ) { _ in }
+                .onChange(of: self.inputURL) { url in
+                    if let url {
+                        self.compiledURL = try? MLModel.compileModel(at: url)
+                    } else {
+                        self.compiledURL = nil
+                    }
+                }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -39,15 +40,12 @@ extension ContentView: View {
                         }
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Compile & Save") {
-                            guard let url = self.inputURL else { return }
-                            self.compiledURL = try? MLModel.compileModel(at: url)
-                            self.isExporterPresented = true
+                        if let compiledURL {
+                            ShareLink(item: compiledURL)
+                                .labelStyle(.iconOnly)
                         }
-                        .disabled(self.inputURL == nil)
                     }
                 }
         }
-        .navigationViewStyle(.stack)
     }
 }
