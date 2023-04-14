@@ -6,6 +6,7 @@ struct ContentView {
     @State private var inputURL: URL?
     @State private var compiledURL: URL?
     @State private var isImporterPresented = false
+    @State private var isCompiling = false
 }
 
 extension ContentView: View {
@@ -27,7 +28,11 @@ extension ContentView: View {
                 }
                 .onChange(of: self.inputURL) { url in
                     if let url {
-                        self.compiledURL = try? MLModel.compileModel(at: url)
+                        Task {
+                            self.isCompiling = true
+                            self.compiledURL = try await MLModel.compileModel(at: url)
+                            self.isCompiling = false
+                        }
                     } else {
                         self.compiledURL = nil
                     }
@@ -43,6 +48,8 @@ extension ContentView: View {
                         if let compiledURL {
                             ShareLink(item: compiledURL)
                                 .labelStyle(.iconOnly)
+                        } else if self.isCompiling {
+                            ProgressView()
                         }
                     }
                 }
