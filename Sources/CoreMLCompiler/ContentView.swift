@@ -39,12 +39,12 @@ extension ContentView: View {
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
+                    ToolbarItem(placement: .navigation) {
                         Button("Open") {
                             self.isImporterPresented = true
                         }
                     }
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                    ToolbarItem(placement: .primaryAction) {
                         if let compiledURL {
                             ShareLink(item: compiledURL)
                                 .labelStyle(.iconOnly)
