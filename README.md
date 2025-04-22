@@ -3,7 +3,7 @@
 [![Swift](https://img.shields.io/badge/Swift-5.7-orange.svg)](https://www.swift.org)
 [![Swift Playgrounds](https://img.shields.io/badge/Swift%20Playgrounds-4.2-orange.svg)](https://itunes.apple.com/jp/app/swift-playgrounds/id908519492)
 ![Platform](https://img.shields.io/badge/platform-ipados%20%7C%20ios-lightgrey.svg)
-[![License](https://img.shields.io/github/license/kkebo/CoreMLCompiler.swiftpm.svg)](LICENSE.txt)
+[![License](https://img.shields.io/github/license/kkebo/CoreMLCompiler.swiftpm.svg)](LICENSE)
 
 Core ML Compiler is an iPadOS/iOS app to convert a .mlmodel file into a .mlmodelc file.
 
