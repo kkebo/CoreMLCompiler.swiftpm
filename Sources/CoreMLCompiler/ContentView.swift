@@ -16,7 +16,8 @@ extension ContentView: View {
                 .fileImporter(
                     isPresented: self.$isImporterPresented,
                     allowedContentTypes: [
-                        .init(filenameExtension: "mlmodel")!
+                        .init(filenameExtension: "mlmodel")!,
+                        .init(filenameExtension: "mlpackage", conformingTo: .package)!,
                     ]
                 ) { result in
                     switch result {
